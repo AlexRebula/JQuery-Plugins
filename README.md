@@ -1,14 +1,8 @@
-# aiia jQuery plugins
+aiia jQuery plugins
+===================
 
 This repository is an attempt to create useful and beautiful jQuery plugins.
 
 Feel free to contribute at will and if you like what you see, I would be more than pleased to know that there are people out there using my plugins. 
 
 There will be soon coming more of them.
-
-# Table of Contents
- 
-* [Team Members](#team-members)
- 
-# <a name="team-members"></a>Team Members
-* "J. Jesus. P. Aguinaga" <admin@listforks.com>
