@@ -538,7 +538,7 @@
 		$s.css({
 			'margin-left': '100%'  // move all lower steps to the left
 		});
-	}
+	} 
 
 	function showStep($s) {
 		$s.css({
