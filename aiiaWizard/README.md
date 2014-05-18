@@ -19,7 +19,7 @@ So, feel free to comment on my code, because I know it is not perfect. With your
 
 The aiiaWizard plugin is **Twitter Bootstrap 3.x oriented**, thus **responsive**. It takes your input form elements and breaks them down into as many steps as you set it to. In fact, in some way the result is very similar to the Tabs plugin, but instead of tabs and corresponding content panels, you have **progress buttons and steps**. Steps are the elements that hold your form parts perhaps or any other HTML content.
 
-You can also compare this plugin to a carousel, but then again it is not a carousel. Well, maybe I'll update the plugin so that it will have different modes (tabs, slider, carousel...). But right now it serves for one purpose only and that is creating a Wizard with steps, plaing and simple. The aiiaPlugin may as well be a hybrid between the Tabs Twitter Bootstrap and the carousel plugin if you like.
+You can also compare this plugin to a carousel, but then again it is not a carousel. Well, maybe I'll update the plugin so that it will have different modes (tabs, slider, carousel...). But right now it serves for one purpose only and that is creating a Wizard with steps, plain and simple. The aiiaPlugin may as well be a hybrid between the Tabs Twitter Bootstrap and the carousel plugin if you like.
 
 ### Animations
 
