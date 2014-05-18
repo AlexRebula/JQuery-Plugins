@@ -9,9 +9,9 @@ Imagine you have a complex input form that the user must fill in. Wouldn't it be
 
 Oh... I know you'll probably say..."Why would you make a plugin that already exists?". :) Well, why not? It's true, there are some great plugins out there that do just that. In fact this plugin was inspired by the excellent ["jQuery Steps" plugin, created by Rafael Staib](http://www.jquery-steps.com). And I am sure that if you Google you'll find more of them... 
 
-However I decided to do one myself as an experiment and because for some reason Rafael's plugin was mising some things that I needed at the moment and there was also a bug when initializing other jQuery plugins within the Steps plugin. For examplem the Google maps plugin would not initialize for some reason. Another reason that I created it was because I love jQuery and this is my chance to learn more about jQuery plugins. 
+However I decided to do one myself as an experiment and because for some reason Rafael's plugin was mising some things that I needed at the moment and there was also a bug when initializing other jQuery plugins within the Steps plugin. For example the Google maps plugin would not initialize for some reason.
 
-So, feel free to comment on my code, because I know it is not perfect. With your comments and perhaps your contributions maybe I can make things better and take it to another level, so please, feel free to give your thoughts - positive and negative. Believe me, I'll be very grateful.
+With your comments and perhaps your contributions maybe I can make things better and take it to another level, so please, feel free to give your thoughts - positive and negative. I'll be very grateful.
 
 ## Plugin description
 
@@ -21,7 +21,7 @@ You can also compare this plugin to a carousel, but then again it is not a carou
 
 ### Animations
 
-Right now there is just one animation available and that is a default horizontal slide with no special easing effects whatsoever, but I'l try to improve that ASAP. It simply wasn't a prioprity right now.
+Right now there is just one animation available and that is a default horizontal slide with no special easing effects whatsoever. I'll try to improve that.
 
 ## Usage
 
