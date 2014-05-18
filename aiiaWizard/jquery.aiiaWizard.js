@@ -1,6 +1,6 @@
 ﻿(function ($) {
 
-	var settings;
+	var settings; 
 
 	////////////////////////////////////////// Plugin definition
 
