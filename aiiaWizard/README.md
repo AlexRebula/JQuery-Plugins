@@ -3,7 +3,7 @@ jquery.aiiaWizard.js
 
 IMPORTANT: Before you continue reading this or before you download the plugin, take in consideration that this is my first attempt to publish this specific plugin and that it still lacks of some options and functionalities, but other than that I am sure that for basic needs it should do.
 
-**You can skip the plugin descriptipon below and head at the very bottom to see the 43 seconds long VIDEO of the plugin in action. Or you can click [here](https://www.google.com) to watch it on youtube.**
+**You can skip the plugin description below and head at the very bottom to see the 43 seconds long VIDEO of the plugin in action. Or you can click [here](https://www.google.com) to watch it on youtube.**
 
 ## Motivation for creating the aiiaWizard jQuery plugin
 
