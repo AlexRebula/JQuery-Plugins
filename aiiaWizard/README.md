@@ -30,22 +30,22 @@ Right now there is just one animation available and that is a default horizontal
 
     <div class="aiia-wizard-step">
         <h1>This is the first step title</h1>
-        ... your html ccontent goes here ...
+        ... your html content goes here ...
     </div>
 
     <div class="aiia-wizard-step">
         <h1>This is the second step title</h1>
-        ... your html ccontent goes here ...
+        ... your html content goes here ...
     </div>
 
     <div class="aiia-wizard-step">
         <h1>This is the third step title</h1>
-        ... your html ccontent goes here ...
+        ... your html content goes here ...
     </div>
 
     <div class="aiia-wizard-step">
         <h1>This is the fourth step title</h1>
-        ... your html ccontent goes here ...
+        ... your html content goes here ...
     </div>
 
 </div>
