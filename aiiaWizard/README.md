@@ -34,17 +34,17 @@ Right now there is just one animation available and that is a default horizontal
     </div>
 
     <div class="aiia-wizard-step">
-        <h1>This is the first step title</h1>
+        <h1>This is the second step title</h1>
         ... your html ccontent goes here ...
     </div>
 
     <div class="aiia-wizard-step">
-        <h1>This is the first step title</h1>
+        <h1>This is the third step title</h1>
         ... your html ccontent goes here ...
     </div>
 
     <div class="aiia-wizard-step">
-        <h1>This is the first step title</h1>
+        <h1>This is the fourth step title</h1>
         ... your html ccontent goes here ...
     </div>
 
@@ -52,11 +52,9 @@ Right now there is just one animation available and that is a default horizontal
 ```
 
 ```javascript
-<script>
-	$(document).ready(function () {
-		$("#wizard").aiiaWizard();
-	});
-</script>
+$(document).ready(function () {
+	$("#wizard").aiiaWizard();
+});
 ```
 
 ## Options
@@ -192,7 +190,7 @@ $("#wizard").aiiaWizard({
         //alert("onSlideRightFinished success");
     }
 });
-```javascript
+```
 
 ## Methods
 
