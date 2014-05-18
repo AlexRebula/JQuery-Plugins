@@ -1,6 +1,12 @@
 jquery.aiiaWizard.js
 ====================
 
+## Demo
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=D2Q54aKHE6w
+" target="_blank"><img src="http://img.youtube.com/vi/D2Q54aKHE6w/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="100%" border="10" /></a>
+
 IMPORTANT: Before you continue reading this or before you download the plugin, take in consideration that this is my first attempt to publish this specific plugin and that it still lacks of some options and functionalities, but other than that I am sure that for basic needs it should do.
 
 ## Motivation for creating the aiiaWizard jQuery plugin
