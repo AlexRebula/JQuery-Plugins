@@ -614,7 +614,7 @@
 		$progressButton.find(".aiia-wizard-icon-step-completed").remove();
 		var $a = $progressButton.find("a");
 		$a.removeAttr("style");
-	}
+	} 
 
 
 
