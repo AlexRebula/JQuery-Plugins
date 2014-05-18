@@ -1,6 +1,6 @@
 ﻿(function ($) {
 
-	var settings; 
+	var settings;
 
 	////////////////////////////////////////// Plugin definition
 
@@ -155,10 +155,10 @@
 			return this.each(function () {
 
 				var $this = $(this),
-                    data = $this.data('aiiaWizard'),
-                    aiiaWizard = $('<div />', {
-                    	text: $this.attr('title')
-                    });
+					data = $this.data('aiiaWizard'),
+					aiiaWizard = $('<div />', {
+						text: $this.attr('title')
+					});
 
 				//#region If the plugin hasn't been initialized yet
 				if (!data) {
@@ -398,15 +398,15 @@
 
 	function getButtonsTemplate(settings) {
 		var $buttons = $("" +
-            "<div class='aiia-wizard-buttons-wrapper row'>" +
-                "<div class='col-md-12'>" +
-                    "<button class='btn btn-primary pull-left aiia-wizard-button-previous'></button>" +
-                    "<button class='btn btn-primary pull-right aiia-wizard-button-next'></button>" +
-                "</div>" +
-            "</div>" +
-        "").css({
-        	'display': 'block'
-        });
+			"<div class='aiia-wizard-buttons-wrapper row'>" +
+				"<div class='col-md-12'>" +
+					"<button class='btn btn-primary pull-left aiia-wizard-button-previous'></button>" +
+					"<button class='btn btn-primary pull-right aiia-wizard-button-next'></button>" +
+				"</div>" +
+			"</div>" +
+		"").css({
+			'display': 'block'
+		});
 
 		var $iconPrevious = $("<span class='glyphicon glyphicon-chevron-left pull-left'></span>");
 		var $iconPreviousText = $("<span>" + settings.aiiaWizard.localization.buttons.previous + "</span>");
@@ -421,12 +421,12 @@
 		$buttons.find(".btn").css(settings.aiiaWizard.buttons.css);
 
 		$buttons.find(".aiia-wizard-button-previous")
-            .append($iconPrevious)
-            .append($iconPreviousText);
+			.append($iconPrevious)
+			.append($iconPreviousText);
 
 		$buttons.find(".aiia-wizard-button-next")
-            .append($iconNext)
-            .append($iconNextText);
+			.append($iconNext)
+			.append($iconNextText);
 
 		return $buttons;
 	}
@@ -448,26 +448,26 @@
 
 	function getStepsWrapperTemplate(globalMinHeight) {
 		var result = $("<div class='aiia-wizard-steps-wrapper'></div>")
-            .css({
-            	'position': 'relative',
-            	'overflow': 'hidden',
-            	'min-height': globalMinHeight + 'px'
-            });
+			.css({
+				'position': 'relative',
+				'overflow': 'hidden',
+				'min-height': globalMinHeight + 'px'
+			});
 		return result;
 	}
 
 	function getProgressButtonsTemplate($steps, settings) {
 
 		var $progessButtonsWrapper = $("" +
-            "<div class='aiia-wizard-progress-buttons-wrapper row'>" +
-                "<div class='col-md-12'>" +
-                    "<ul class='nav nav-pills nav-justified aiia-wizard-progress-buttons-placeholder'>" +
-                    "</ul>" +
-                "</div>" +
-            "</div>" +
-        "").css({
-        	'display': 'block'
-        });
+			"<div class='aiia-wizard-progress-buttons-wrapper row'>" +
+				"<div class='col-md-12'>" +
+					"<ul class='nav nav-pills nav-justified aiia-wizard-progress-buttons-placeholder'>" +
+					"</ul>" +
+				"</div>" +
+			"</div>" +
+		"").css({
+			'display': 'block'
+		});
 
 		$.each($steps, function (i, step) {
 			var $step = $(step);
@@ -475,8 +475,8 @@
 			var pos = parseInt($step.data('position'), 10);
 
 			var $progressButton = $("" +
-                "<li data-position='" + $step.attr('data-position') + "'><a href='#'><h1>" + $step.data('position') + ". </h1>" + $step.find('h1').html() + "</a></li>" +
-            "");
+				"<li data-position='" + $step.attr('data-position') + "'><a href='#'><h1>" + $step.data('position') + ". </h1>" + $step.find('h1').html() + "</a></li>" +
+			"");
 
 			if ($step.hasClass("active") && settings.aiiaWizard.progressButtons.markActive) {
 				$progressButton.removeClass('default');
@@ -513,14 +513,14 @@
 		$stepTitle.remove();
 
 		var $newStepTitle = $("" +
-            "<div class='row aiia-wizard-step-title'>" +
-                "<div class='col-md-12'>" +
-                    "<span class='aiia-wizard-step-title-number'>" + stepNumber + "</span>" +
-                    "<span class='aiia-wizard-step-title-text'>" + stepTitleText + "</span>" +
-                "</div>" +
-            "</div>" +
-            "" +
-        "");
+			"<div class='row aiia-wizard-step-title'>" +
+				"<div class='col-md-12'>" +
+					"<span class='aiia-wizard-step-title-number'>" + stepNumber + "</span>" +
+					"<span class='aiia-wizard-step-title-text'>" + stepTitleText + "</span>" +
+				"</div>" +
+			"</div>" +
+			"" +
+		"");
 
 		$newStepTitle.find(".aiia-wizard-step-title-number").css(settings.aiiaWizard.steps.title.number.css);
 		$newStepTitle.find(".aiia-wizard-step-title-text").css(settings.aiiaWizard.steps.title.text.css);
@@ -538,7 +538,7 @@
 		$s.css({
 			'margin-left': '100%'  // move all lower steps to the left
 		});
-	} 
+	}
 
 	function showStep($s) {
 		$s.css({
@@ -548,8 +548,8 @@
 
 	function getActiveElementPosition($pluginElement) {
 		var stringResult = $pluginElement
-            .find(".aiia-wizard-steps-wrapper")
-            .find(".active").data('position');
+			.find(".aiia-wizard-steps-wrapper")
+			.find(".active").data('position');
 
 		return parseInt(stringResult, 10);
 	}
@@ -568,9 +568,9 @@
 		$finishButton.css(settings.aiiaWizard.buttons.finish.text.css);
 
 		$finishButton
-            .removeClass('btn-primary')
-            .addClass('btn-success')
-            .html(txt);
+			.removeClass('btn-primary')
+			.addClass('btn-success')
+			.html(txt);
 	}
 
 	function unsetFinishButton($pluginElement, settings) {
@@ -583,11 +583,11 @@
 		$iconNextText.css(settings.aiiaWizard.buttons.next.text.css);
 
 		$finishButton
-            .removeClass('btn-success')
-            .addClass('btn-primary')
-            .html("")
+			.removeClass('btn-success')
+			.addClass('btn-primary')
+			.html("")
 			.append($iconNextText)
-            .append($iconNext)
+			.append($iconNext)
 	}
 
 	function markStepAsCompleted(activeElementPosition, $plugin, settings) {
