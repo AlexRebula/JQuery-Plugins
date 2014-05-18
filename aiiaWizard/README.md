@@ -7,7 +7,7 @@ IMPORTANT: Before you continue reading this or before you download the plugin, t
 
 Imagine you have a complex input form that the user must fill in. Wouldn't it be better to break down the form into several steps?
 
-Oh... I know you'll probably say..."Why would you make a plugin that already exists?". :) Well, why not? It's true, there are some great plugins out there that do just that. In fact this plugin was inspired by the excellent ["jQuery Steps" plugin, created by Rafael Staib](http://www.jquery-steps.com). And I am sure that if you Google you'll more of them... 
+Oh... I know you'll probably say..."Why would you make a plugin that already exists?". :) Well, why not? It's true, there are some great plugins out there that do just that. In fact this plugin was inspired by the excellent ["jQuery Steps" plugin, created by Rafael Staib](http://www.jquery-steps.com). And I am sure that if you Google you'll find more of them... 
 
 However I decided to do one myself as an experiment and because for some reason Rafael's plugin was mising some things that I needed at the moment and there was also a bug when initializing other jQuery plugins within the Steps plugin. For examplem the Google maps plugin would not initialize for some reason. Another reason that I created it was because I love jQuery and this is my chance to learn more about jQuery plugins. 
 
