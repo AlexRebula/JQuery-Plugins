@@ -15,7 +15,7 @@ With your comments and perhaps your contributions maybe I can make things better
 
 ## Plugin description
 
-The aiiaWizard plugin is **Twitter Bootstrap 3.x oriented**, thus **responsive**. It takes your input form elements (or any HTML element for that matter) and breaks them down into as many steps as you set them to. In fact, in some way the result is very similar to the ["Twitter Bootstrap tab plugin](http://getbootstrap.com/javascript/#tabs), but instead of tabs and corresponding content panels, you have **progress buttons and steps**. Steps are the elements that hold your form parts perhaps or any other HTML content.
+The aiiaWizard plugin is **Twitter Bootstrap 3.x oriented**, thus **responsive**. It takes your input form elements (or any other HTML element for that matter) and breaks them down into as many steps as you set them to. In fact, in some way the result is very similar to the ["Twitter Bootstrap tab plugin](http://getbootstrap.com/javascript/#tabs), but instead of tabs and corresponding content panels, you have **progress buttons and steps**. Steps are the elements that hold your form parts perhaps or any other HTML content.
 
 You can also compare this plugin to a carousel, but then again it is not a carousel. Well, maybe I'll update the plugin so that it will have different modes (tabs, slider, carousel...). But right now it serves for one purpose only and that is creating a Wizard with steps, plain and simple. The aiiaPlugin may as well be a hybrid between the Tabs Twitter Bootstrap and the carousel plugin if you like.
 
@@ -28,25 +28,25 @@ Right now there is just one animation available and that is a default horizontal
 ```html
 <div id="wizard" class="aiia-wizard" style="display: none;">
 
-    <div class="aiia-wizard-step">
-        <h1>This is the first step title</h1>
-        ... your html content goes here ...
-    </div>
+	<div class="aiia-wizard-step">
+		<h1>This is the first step title</h1>
+		... your html content goes here ...
+	</div>
 
-    <div class="aiia-wizard-step">
-        <h1>This is the second step title</h1>
-        ... your html content goes here ...
-    </div>
+	<div class="aiia-wizard-step">
+		<h1>This is the second step title</h1>
+		... your html content goes here ...
+	</div>
 
-    <div class="aiia-wizard-step">
-        <h1>This is the third step title</h1>
-        ... your html content goes here ...
-    </div>
+	<div class="aiia-wizard-step">
+		<h1>This is the third step title</h1>
+		... your html content goes here ...
+	</div>
 
-    <div class="aiia-wizard-step">
-        <h1>This is the fourth step title</h1>
-        ... your html content goes here ...
-    </div>
+	<div class="aiia-wizard-step">
+		<h1>This is the fourth step title</h1>
+		... your html content goes here ...
+	</div>
 
 </div>
 ```
@@ -64,129 +64,129 @@ Right now there are limited options available, but still better than nothing. :)
 ```javascript
 {
 	aiiaWizard: {
-	    minHeight: 400,
-	    localization: {
-	        buttons: {
-	            next: 'Next',
-	            previous: 'Previous',
-	            finish: 'Finish'
-	        }
-	    },
-	    progressButtons: {
-	        borderBottom: {
-	            css: {
-	                'border-width': '4px',
-	                'border-color': '#E6E6E6'
-	            }
-	        },
-	        css: {
-	            'padding': '0 43px',
+		minHeight: 400,
+		localization: {
+			buttons: {
+				next: 'Next',
+				previous: 'Previous',
+				finish: 'Finish'
+			}
+		},
+		progressButtons: {
+			borderBottom: {
+				css: {
+					'border-width': '4px',
+					'border-color': '#E6E6E6'
+				}
+			},
+			css: {
+				'padding': '0 43px',
 	
-	        },
-	        markActive: false,
-	        completed: {
-	        	css: {
-	        		'background-color': '#E6E6E6'
-	        	},
-	        	icon: {
-	        		cssClass: 'glyphicon glyphicon-ok-sign',
-	        		css: {
-	        			'position': 'absolute',
-	        			'top': '-20px',
-	        			'right': '-17px',
-	        			'font-size': '4em',
-	        			'color': 'green'
-	        		}
-	        	}
-	        }
+			},
+			markActive: false,
+			completed: {
+				css: {
+					'background-color': '#E6E6E6'
+				},
+				icon: {
+					cssClass: 'glyphicon glyphicon-ok-sign',
+					css: {
+						'position': 'absolute',
+						'top': '-20px',
+						'right': '-17px',
+						'font-size': '4em',
+						'color': 'green'
+					}
+				}
+			}
 	
-	    },
-	    steps: {
-	        title: {
-	            number: {
-	                css: {
-	                    'background-color': '#E6E6E6',
-	                    '-webkit-border-radius': '300px',
-	                    '-moz-border-radius': '300px',
-	                    'border-radius': '300px',
-	                    'color': '#FFFFFF',
-	                    'float': 'left',
-	                    'font-size': '36px',
-	                    'height': '70px',
-	                    'margin-right': '10px',
-	                    'text-align': 'center',
-	                    'width': '70px',
-	                    'font-weight': 'bold',
-	                    'padding-top': '8px'
-	                }
-	            },
-	            text: {
-	                css: {
-	                    'color': '#158CBA',
-	                    'font-size': '36px',
-	                    'float': 'left',
-	                    'font-size': '36px',
-	                    'margin-top': '8px'
-	                }
-	            }
-	        },
-	        content: {
+		},
+		steps: {
+			title: {
+				number: {
+					css: {
+						'background-color': '#E6E6E6',
+						'-webkit-border-radius': '300px',
+						'-moz-border-radius': '300px',
+						'border-radius': '300px',
+						'color': '#FFFFFF',
+						'float': 'left',
+						'font-size': '36px',
+						'height': '70px',
+						'margin-right': '10px',
+						'text-align': 'center',
+						'width': '70px',
+						'font-weight': 'bold',
+						'padding-top': '8px'
+					}
+				},
+				text: {
+					css: {
+						'color': '#158CBA',
+						'font-size': '36px',
+						'float': 'left',
+						'font-size': '36px',
+						'margin-top': '8px'
+					}
+				}
+			},
+			content: {
 	
-	        }
-	    },
-	    buttons: {
-	        previous: {
-	            text: {
-	            	css: {
-	            		'font-size': '20px',
-	            		'float': 'right',
-	            		'font-size': '20px',
-	            		'margin-top': '2px',
-	            		'margin-left': '7px'
-	            	}
-	            },
-	            icon: {
-	                css: {
-	                    'font-size': '24px'
-	                }
-	            }
-	            
-	        },
-	        next: {
-	            text: {
-	                css: {
-	                	'font-size': '20px',
-	                	'float': 'left',
+			}
+		},
+		buttons: {
+			previous: {
+				text: {
+					css: {
+						'font-size': '20px',
+						'float': 'right',
+						'font-size': '20px',
+						'margin-top': '2px',
+						'margin-left': '7px'
+					}
+				},
+				icon: {
+					css: {
+						'font-size': '24px'
+					}
+				}
+				
+			},
+			next: {
+				text: {
+					css: {
+						'font-size': '20px',
+						'float': 'left',
 							'font-size': '20px',
 							'margin-top': '2px',
 							'margin-right': '7px'
-	                }
-	            },
-	            icon: {
-	                css: {
-	                    'font-size': '24px'
-	                }
-	            }
-	        },
-	        'css': {
-	            //'padding-bottom': '10px'
-	        },
-	        finish: {
-	        	text: {
-	        		css: {
-	        			'font-size': '20px',
-	        			'float': 'left',
-	        			'font-size': '20px',
-	        			'margin-top': '2px',
-	        			'margin-right': '7px'
-	        		}
-	        	}
-	        },
-	        'css': {
-	        	//'padding-bottom': '10px'
-	        }
+					}
+				},
+				icon: {
+					css: {
+						'font-size': '24px'
+					}
+				}
+			},
+			'css': {
+				//'padding-bottom': '10px'
+			},
+			finish: {
+				text: {
+					css: {
+						'font-size': '20px',
+						'float': 'left',
+						'font-size': '20px',
+						'margin-top': '2px',
+						'margin-right': '7px'
+					}
+				}
+			},
+			'css': {
+				//'padding-bottom': '10px'
+			}
 	
-	    }
+		}
 	}
 }
 ```
@@ -198,21 +198,21 @@ The same as options, there are limited number of callbacks available right now..
 
 ```javascript
 $("#wizard").aiiaWizard({
-    onInitSuccess: function () {
-        //alert("init success");
-    },
-    onSlideLeftLimitReached: function () {
-        //alert("onSlideLeftLimitReached success");
-    },
-    onSlideLeftFinished: function () {
-        //alert("onSlideLeftFinished success");
-    },
-    onSlideRightLimitReached: function () {
-        //alert("onSlideRightLimitReached success");
-    },
-    onSlideRightFinished: function () {
-        //alert("onSlideRightFinished success");
-    }
+	onInitSuccess: function () {
+		//alert("init success");
+	},
+	onSlideLeftLimitReached: function () {
+		//alert("onSlideLeftLimitReached success");
+	},
+	onSlideLeftFinished: function () {
+		//alert("onSlideLeftFinished success");
+	},
+	onSlideRightLimitReached: function () {
+		//alert("onSlideRightLimitReached success");
+	},
+	onSlideRightFinished: function () {
+		//alert("onSlideRightFinished success");
+	}
 });
 ```
 
