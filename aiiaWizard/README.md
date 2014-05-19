@@ -1,7 +1,7 @@
 jquery.aiiaWizard.js
 ====================
 
-**You can skip the plugin description below and head at the very bottom to see the 43 seconds long VIDEO of the plugin in action. Or you can click [here](https://www.youtube.com/watch?v=D2Q54aKHE6w) to watch it on youtube.**
+**You can skip the plugin description below and head at the very bottom to see the 43 seconds long VIDEO of the plugin in action. Or you can click [here](https://www.youtube.com/watch?v=D2Q54aKHE6w).**
 
 ## Motivation for creating the aiiaWizard jQuery plugin
 
