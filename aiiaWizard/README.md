@@ -5,7 +5,7 @@ jquery.aiiaWizard.js
 
 ## Motivation for creating the aiiaWizard jQuery plugin
 
-Imagine you have a complex input form that the user must fill in. Wouldn't it be better to break down the form into several steps?
+Imagine you have a complex HTML form that the user must fill in. Wouldn't it be better to break down the form into several steps?
 
 Oh... I know you'll probably say..."Why would you make a plugin that already exists?". :) Well, why not? It's true, there are some great plugins out there that do just that. In fact this plugin was inspired by the excellent ["jQuery Steps" plugin, created by Rafael Staib](http://www.jquery-steps.com). And I am sure that if you Google you'll find more of them... 
 
