@@ -214,14 +214,14 @@ $("#wizard").aiiaWizard({
 		//alert("onSlideRightFinished success");
 	},
 	onButtonPreviousClick: function () {
-		// By defining this callback you must then explicitly call the "previous" method
-		// in order to slide to the previous step.
+		// Instead of just sliding to the previous step when clicking the "previous" button, you can override this functionality instead.
+		// By doing that you must then explixitly call the "previous" plugin method as shown below if you want to slide to the previous step.
 		alert("onButtonPreviousClick");
 		$("#wizard").aiiaWizard('previous');
 	},
 	onButtonNextClick: function () {
-		// By defining this callback you must then explicitly call the "next" method
-		// in order to slide to the next step.
+		// Instead of just sliding to the next step when clicking the "next" button, you can override this functionality instead.
+		// By doing that you must then explixitly call the "next" plugin method as shown below if you want to slide to the next step.
 		alert("onButtonNextClick");
 		$("#wizard").aiiaWizard('next');
 	}
