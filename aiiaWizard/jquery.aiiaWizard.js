@@ -35,11 +35,14 @@
 					///////////////////////// Prepare Wizard components
 
 					var $stepsWrapper = getStepsWrapperTemplate(globalMinHeight);
-					var $buttons = getButtonsTemplate(settings );
-					var $steps = $this.find(".aiia-wizard-step");                   
+					var $buttons = getButtonsTemplate(settings);
+					var $steps = $this.find(".aiia-wizard-step");
+
+					$buttonNext = $buttons.find(".aiia-wizard-button-next");
+					$buttonPrevious = $buttons.find(".aiia-wizard-button-previous");
 
 					///////////////////////// Place Wizard component
-					
+
 					$stepsWrapper.append($steps);       // Place steps in the steps wrapper
 					$this.append($stepsWrapper);        // Place the steps wrapper that now contains all the steps in the original container
 					$this.append($buttons);             // Place Buttons right after the steps wrapper  
@@ -65,10 +68,10 @@
 
 					/////////////////////////// Find the active step or set the first step active as default 
 
-					if (!$(".active").length) {                    	
-						$steps.eq(activeStep-1).addClass("active");
+					if (!$(".active").length) {
+						$steps.eq(activeStep - 1).addClass("active");
 						highlightActiveElement($this);
-					}                        
+					}
 
 					var $activeStep = $stepsWrapper.find(".active");
 					var activeElementPosition = parseInt($activeStep.data('position'), 10);
@@ -81,27 +84,27 @@
 
 						if ((i + 1) < activeElementPosition) {
 							moveStepLeft($step);
-							markStepAsCompleted(i+1, $this, settings);
+							markStepAsCompleted(i + 1, $this, settings);
 						} else if ((i + 1) > activeElementPosition) {
-							moveStepRight($step);							
+							moveStepRight($step);
 						} else {
 							showStep($step); // Only one element should satisfy this condition   
 							highlightActiveElement($this);
 							markStepAsCompleted(i + 1, $this, settings);
 						}
 
-					});                    
+					});
 
 					var $progressButtonsBorderBottom = getProgressButtonsBorderBottomTemplate(settings);
 					$progressButtonsTemplate.after($progressButtonsBorderBottom);
-					
+
 					/////////////////////////// We can now show the plugin component
 					$this.show();
-					
+
 					/////////////////////////// Activate buttons accordingly to which step is active
-					
+
 					// If final step is shown
-					if (activeElementPosition === $steps.length) { 
+					if (activeElementPosition === $steps.length) {
 						setFinishButton($this);
 					}
 
@@ -115,7 +118,15 @@
 					$this.find('.aiia-wizard-button-previous').click(function (e) {
 						e.preventDefault();
 						var $elementToSlide = $this.find(".aiia-wizard-steps-wrapper .active");
-						slideRight($elementToSlide, settings, this, $this);
+						$this.trigger("onButtonPreviousClick.aiiaWizard", this);
+
+						if ($.isFunction(settings.onButtonPreviousClick)) {
+							// Trigger the override callback it the callback is set at the plugin initialization...
+							settings.onButtonPreviousClick.call(this);
+						} else {
+							// ...slide right imediatelly otherwise.
+							slideRight($elementToSlide, settings, $this);
+						}						
 					});
 
 					$this.on("slideRightSuccess.aiiaWizard", function () {
@@ -129,14 +140,21 @@
 					$this.find('.aiia-wizard-button-next').click(function (e) {
 						e.preventDefault();
 						var $elementToSlide = $this.find(".aiia-wizard-steps-wrapper .active");
-						slideLeft($elementToSlide, settings, this, $this);
+
+						if ($.isFunction(settings.onButtonNextClick)) {
+							// Trigger the override callback it the callback is set at the plugin initialization...
+							settings.onButtonNextClick.call(this);
+						} else {
+							// ...slide left imediatelly otherwise.
+							slideLeft($elementToSlide, settings, $this);
+						}
+						
 					});
 
 					/////////////////////////// Testing Success Icon
+
 					var $progressButtonsPlaceholder = $progressButtonsTemplate.find(".aiia-wizard-progress-buttons-placeholder");
 					var $progressButtons = $progressButtonsPlaceholder.children();
-
-					//markAsCompleted($progressButtons.first(), settings);
 
 					/////////////////////////// Store plugin data
 
@@ -145,21 +163,21 @@
 					$this.data('aiiaWizard').settings = settings;
 
 					resizeWizardStepsWrapper($this);
-				   
+
 					$.isFunction(settings.onInitSuccess) && settings.onInitSuccess.call(this);
 					$this.trigger("initSuccess.aiiaWizard", this);
 				}
 				//#endregion
 			});
 		},
-		isFinalElementShown: function () {            
+		isFinalElementShown: function (a, b) {
 			var activeElementPosition = getActiveElementPosition($(this));
 			if (activeElementPosition === countElements($(this))) {
 				return true;
 			} else {
 				return false;
 			}
-		},        
+		},
 		hideButtonNext: function () {
 			// TODO: implement
 		},
@@ -167,16 +185,32 @@
 			// TODO: implement
 		},
 		previous: function () {
-			// TODO: implement
+			$plugin = $(this);
+			var settings = $plugin.data('aiiaWizard').settings;
+			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
+			slideRight($elementToSlide, settings, $plugin);
 		},
 		next: function () {
-			// TODO: implement
+			$plugin = $(this);
+			var settings = $plugin.data('aiiaWizard').settings;
+			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
+			slideLeft($elementToSlide, settings, $plugin);
 		},
 		final: function () {
 			// TODO: implement
 		},
+
+		// disables the "previous" button for the provided step
+		disablePreviousButton: function (stepNumber) {
+
+		},
+
+		// enables the "previous" button for the provided step
+		enablePreviousButton: function (stepNumber) {
+
+		},
 	};
-	
+
 	////////////////////////////////////////// Private functions 
 
 	function resizeWizardStepsWrapper($this) {
@@ -185,10 +219,10 @@
 
 		$wizardStepsWrapper.clearQueue().animate({
 			"height": $activeStep.height() + "px"
-		}); 
+		});
 	}
 
-	function slideLeft($elementToSlide, settings, self, $plugin) {
+	function slideLeft($elementToSlide, settings, $plugin) {
 
 		if ($elementToSlide.next().length) {
 
@@ -196,7 +230,7 @@
 				'margin-left': '-100%'
 			});
 
-			var $next = $elementToSlide.next();     
+			var $next = $elementToSlide.next();
 
 			$next.clearQueue().animate({
 				'margin-left': 0
@@ -204,7 +238,7 @@
 
 				$(".aiia-wizard-step").removeClass("active");
 				$next.addClass("active");
-
+				 
 				var activeElementPosition = highlightActiveElement($plugin);
 				var stepsCount = $plugin.find(".aiia-wizard-step").length;
 
@@ -212,25 +246,23 @@
 
 				if (activeElementPosition === stepsCount) {
 					setFinishButton($plugin);
-					$.isFunction(settings.onSlideLeftLimitReached) && settings.onSlideLeftLimitReached.call(self);
-					$(self).trigger("slideLeftLimitReached.aiiaWizard", this);
+					$.isFunction(settings.onSlideLeftLimitReached) && settings.onSlideLeftLimitReached.call($plugin);
+					$plugin.trigger("slideLeftLimitReached.aiiaWizard", this);
 				} else {
 					$plugin.find('.aiia-wizard-button-previous').show();
 				}
 
 				var $progressButtons = $plugin.find(".aiia-wizard-progress-buttons-placeholder").children();
 
-
-
-				$.isFunction(settings.onSlideLeftFinished) && settings.onSlideLeftFinished.call(self);
-				$(self).trigger("slideLeftSuccess.aiiaWizard", this);
+				$.isFunction(settings.onSlideLeftFinished) && settings.onSlideLeftFinished.call($plugin);
+				$plugin.trigger("slideLeftSuccess.aiiaWizard", this);
 			});
 
 		}
 
 	}
 
-	function slideRight($elementToSlide, settings, self, $plugin) {
+	function slideRight($elementToSlide, settings, $plugin) {
 
 		if ($elementToSlide.prev().length) {
 
@@ -247,25 +279,25 @@
 			}, function () {
 
 				$plugin.find(".aiia-wizard-step").removeClass("active");
-				
+
 				$prev.addClass("active");
 
 				var activeElementPosition = highlightActiveElement($plugin);
-				unmarkStepAsCompleted(activeElementPosition, $plugin, settings);
+				unmarkStepAsCompleted(activeElementPosition, $plugin);
 
 				if (activeElementPosition === 1) {
 					$plugin.find('.aiia-wizard-button-previous').hide();
 
-					$.isFunction(settings.onSlideRightLimitReached) && settings.onSlideRightLimitReached.call(self);
-					$(self).trigger("slideRightLimitReached.aiiaWizard", this);
+					$.isFunction(settings.onSlideRightLimitReached) && settings.onSlideRightLimitReached.call($plugin);
+					$plugin.trigger("slideRightLimitReached.aiiaWizard", this);
 				} else {
 					if ($plugin.find('.aiia-wizard-button-next').hasClass('btn-success')) {
 						unsetFinishButton($plugin, settings);
 					}
 				}
 
-				$.isFunction(settings.onSlideRightFinished) && settings.onSlideRightFinished.call(self);
-				$(self).trigger("slideRightSuccess.aiiaWizard", this);
+				$.isFunction(settings.onSlideRightFinished) && settings.onSlideRightFinished.call($plugin);
+				$plugin.trigger("slideRightSuccess.aiiaWizard", this);
 
 			});
 
@@ -283,7 +315,7 @@
 		"").css({
 			'display': 'block'
 		});
-		
+
 		var $iconPrevious = $("<span class='glyphicon glyphicon-chevron-left pull-left'></span>");
 		var $iconPreviousText = $("<span>" + settings.aiiaWizard.localization.buttons.previous + "</span>");
 		$iconPrevious.css(settings.aiiaWizard.buttons.previous.icon.css);
@@ -308,12 +340,12 @@
 	}
 
 	function highlightActiveElement($plugin) {
-	
+
 		// find the active element position
 		var $stepsWrapper = $plugin.find(".aiia-wizard-steps-wrapper");
 		var $activeElement = $stepsWrapper.find(".active");
 		var activeElementPosition = parseInt($activeElement.data('position'), 10);
-		
+
 		var $progressButtons = $plugin.find(".aiia-wizard-progress-buttons-placeholder");
 		$progressButtons.find(".active").removeClass("active");
 		$progressButtons.find("li[data-position='" + activeElementPosition + "']").addClass("active");
@@ -339,7 +371,7 @@
 					"<ul class='nav nav-pills nav-justified aiia-wizard-progress-buttons-placeholder'>" +
 					"</ul>" +
 				"</div>" +
-			"</div>" +            
+			"</div>" +
 		"").css({
 			'display': 'block'
 		});
@@ -361,14 +393,14 @@
 			$progressButton.css(settings.aiiaWizard.progressButtons.css);
 
 			$progessButtonsWrapper.find(".aiia-wizard-progress-buttons-placeholder").append($progressButton);
-	
+
 		});
 
 		return $progessButtonsWrapper
 	}
 
 	function getProgressButtonsBorderBottomTemplate(settings) {
-		
+
 		var $hr = $("<hr/>");
 
 		$hr.css(settings.aiiaWizard.progressButtons.borderBottom.css);
@@ -376,7 +408,7 @@
 		return $hr;
 
 	}
-	
+
 	function getStepTitleTemplate(i, $step, settings) {
 
 		var stepNumber = i + 1;
@@ -417,7 +449,7 @@
 
 	function showStep($s) {
 		$s.css({
-			'margin-left': 0 
+			'margin-left': 0
 		});
 	}
 
@@ -466,7 +498,7 @@
 	}
 
 	function markStepAsCompleted(activeElementPosition, $plugin, settings) {
-		
+
 		$plugin.find("[data-position='" + (activeElementPosition - 1) + "']").addClass("completed");
 
 
@@ -477,14 +509,14 @@
 		var $successIcon = $("<span class='" + settings.aiiaWizard.progressButtons.completed.icon.cssClass + " aiia-wizard-icon-step-completed'></span>")
 			.css(settings.aiiaWizard.progressButtons.completed.icon.css);
 
-		var $a = $progressButton.find("a");		
+		var $a = $progressButton.find("a");
 		// When the step is completed, the progress button must show it with a new style (gray by default)...
 		$a.css(settings.aiiaWizard.progressButtons.completed.css);
 		// ...and with a success icon appended.
 		$a.append($successIcon);
 	}
 
-	function unmarkStepAsCompleted(activeElementPosition, $plugin, settings) {
+	function unmarkStepAsCompleted(activeElementPosition, $plugin) {
 
 		var $progressButton = $plugin.find(".aiia-wizard-progress-buttons-placeholder").find("[data-position='" + activeElementPosition + "']");
 		$progressButton.find(".aiia-wizard-icon-step-completed").remove();
@@ -601,7 +633,7 @@
 				},
 				next: {
 					text: {
-						css: {	
+						css: {
 							'font-size': '20px',
 							'float': 'left',
 							'font-size': '20px',
