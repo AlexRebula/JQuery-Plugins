@@ -197,23 +197,35 @@ Right now there are limited options available, but still better than nothing. :)
 The same as options, there are limited number of callbacks available right now...
 
 ```javascript
-$("#wizard").aiiaWizard({
-	onInitSuccess: function () {
-		//alert("init success");
-	},
-	onSlideLeftLimitReached: function () {
-		//alert("onSlideLeftLimitReached success");
-	},
-	onSlideLeftFinished: function () {
-		//alert("onSlideLeftFinished success");
-	},
-	onSlideRightLimitReached: function () {
-		//alert("onSlideRightLimitReached success");
-	},
-	onSlideRightFinished: function () {
-		//alert("onSlideRightFinished success");
-	}
-});
+	$("#wizard").aiiaWizard({
+		onInitSuccess: function () {
+			//alert("init success");
+		},
+		onSlideLeftLimitReached: function () {
+			//alert("onSlideLeftLimitReached success");
+		},
+		onSlideLeftFinished: function () {
+			//alert("onSlideLeftFinished success");
+		},
+		onSlideRightLimitReached: function () {
+			//alert("onSlideRightLimitReached success");
+		},
+		onSlideRightFinished: function () {
+			//alert("onSlideRightFinished success");
+		},
+		onButtonPreviousClick: function () {
+			// By defining this callback you must then explicitly call the "previous" method
+			// in order to slide to the next step.
+			alert("onButtonPreviousClick");
+                    	$("#wizard").aiiaWizard('previous');
+		},
+		onButtonNextClick: function () {
+			// By defining this callback you must then explicitly call the "next" method
+			// in order to slide to the next step.
+			alert("onButtonNextClick");
+                    	$("#wizard").aiiaWizard('next');
+		}
+	});
 ```
 
 ## Methods
