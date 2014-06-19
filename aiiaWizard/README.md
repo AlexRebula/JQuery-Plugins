@@ -19,6 +19,14 @@ The aiiaWizard plugin is **Twitter Bootstrap 3.x oriented**, thus **responsive**
 
 You can also compare this plugin to a carousel, but then again it is not a carousel. Well, maybe I'll update the plugin so that it will have different modes (tabs, slider, carousel...). But right now it serves for one purpose only and that is creating a Wizard with steps, plain and simple. The aiiaPlugin may as well be a hybrid between the Tabs Twitter Bootstrap and the carousel plugin if you like.
 
+### Methods
+
+- isFinalElementShown,
+- previous,
+- next
+- first,
+- getActiveStep
+
 ### Animations
 
 Right now there is just one animation available and that is a default horizontal slide with no special easing effects whatsoever.
@@ -63,132 +71,123 @@ Right now there are limited options available, but still better than nothing. :)
 
 ```javascript
 {
-	aiiaWizard: {
-		minHeight: 400,
-		localization: {
+{
+		aiiaWizard: {
+			minHeight: 400,
+			activeStep: 1,
+			localization: {
+				buttons: {
+					next: 'Next',
+					previous: 'Previous',
+					finish: 'Finish',
+					loading: 'Loading...'
+				}
+			},
+			progressButtons: {
+				borderBottom: {
+					css: {
+						'border-width': '4px',
+						'border-color': '#E6E6E6'
+					}
+				},
+				css: {
+					'padding': '0 43px',
+
+				},
+				markActive: false,
+				completed: {
+					css: {
+						'background-color': '#E6E6E6'
+					},
+					icon: {
+						cssClass: 'glyphicon glyphicon-ok-sign',
+						css: {
+							'position': 'absolute',
+							'top': '-20px',
+							'right': '-17px',
+							'font-size': '4em',
+							'color': 'green'
+						}
+					}
+				}
+
+			},
+			steps: {
+				title: {
+					number: {
+						css: {
+							'background-color': '#E6E6E6',
+							'-webkit-border-radius': '300px',
+							'-moz-border-radius': '300px',
+							'border-radius': '300px',
+							'color': '#FFFFFF',
+							'float': 'left',
+							'font-size': '36px',
+							'height': '70px',
+							'margin-right': '10px',
+							'text-align': 'center',
+							'width': '70px',
+							'font-weight': 'bold',
+							'padding-top': '8px'
+						}
+					},
+					text: {
+						css: {
+							'color': '#158CBA',
+							'font-size': '36px',
+							'float': 'left',
+							'font-size': '36px',
+							'margin-top': '8px'
+						}
+					}
+				},
+				content: {
+
+				}
+			},
 			buttons: {
-				next: 'Next',
-				previous: 'Previous',
-				finish: 'Finish'
-			}
-		},
-		progressButtons: {
-			borderBottom: {
+				previous: {
+					text: {
+						css: {							
+							
+						}
+					},
+					icon: {
+						css: {
+							
+						}
+					}
+
+				},
+				next: {
+					text: {
+						css: { 
+
+						}
+					},
+					icon: {
+						css: {
+							
+						}
+					}
+				},
 				css: {
-					'border-width': '4px',
-					'border-color': '#E6E6E6'
-				}
-			},
-			css: {
-				'padding': '0 43px',
-	
-			},
-			markActive: false,
-			completed: {
+					
+				},
+				finish: {
+					text: {
+						css: {
+							
+						}
+					}
+				},
 				css: {
-					'background-color': '#E6E6E6'
-				},
-				icon: {
-					cssClass: 'glyphicon glyphicon-ok-sign',
-					css: {
-						'position': 'absolute',
-						'top': '-20px',
-						'right': '-17px',
-						'font-size': '4em',
-						'color': 'green'
-					}
+					
 				}
+
 			}
-	
-		},
-		steps: {
-			title: {
-				number: {
-					css: {
-						'background-color': '#E6E6E6',
-						'-webkit-border-radius': '300px',
-						'-moz-border-radius': '300px',
-						'border-radius': '300px',
-						'color': '#FFFFFF',
-						'float': 'left',
-						'font-size': '36px',
-						'height': '70px',
-						'margin-right': '10px',
-						'text-align': 'center',
-						'width': '70px',
-						'font-weight': 'bold',
-						'padding-top': '8px'
-					}
-				},
-				text: {
-					css: {
-						'color': '#158CBA',
-						'font-size': '36px',
-						'float': 'left',
-						'font-size': '36px',
-						'margin-top': '8px'
-					}
-				}
-			},
-			content: {
-	
-			}
-		},
-		buttons: {
-			previous: {
-				text: {
-					css: {
-						'font-size': '20px',
-						'float': 'right',
-						'font-size': '20px',
-						'margin-top': '2px',
-						'margin-left': '7px'
-					}
-				},
-				icon: {
-					css: {
-						'font-size': '24px'
-					}
-				}
-				
-			},
-			next: {
-				text: {
-					css: {
-						'font-size': '20px',
-						'float': 'left',
-							'font-size': '20px',
-							'margin-top': '2px',
-							'margin-right': '7px'
-					}
-				},
-				icon: {
-					css: {
-						'font-size': '24px'
-					}
-				}
-			},
-			'css': {
-				//'padding-bottom': '10px'
-			},
-			finish: {
-				text: {
-					css: {
-						'font-size': '20px',
-						'float': 'left',
-						'font-size': '20px',
-						'margin-top': '2px',
-						'margin-right': '7px'
-					}
-				}
-			},
-			'css': {
-				//'padding-bottom': '10px'
-			}
-	
 		}
 	}
-}
 ```
 
 
