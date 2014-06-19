@@ -71,123 +71,122 @@ Right now there are limited options available, but still better than nothing. :)
 
 ```javascript
 {
-{
-		aiiaWizard: {
-			minHeight: 400,
-			activeStep: 1,
-			localization: {
-				buttons: {
-					next: 'Next',
-					previous: 'Previous',
-					finish: 'Finish',
-					loading: 'Loading...'
-				}
-			},
-			progressButtons: {
-				borderBottom: {
-					css: {
-						'border-width': '4px',
-						'border-color': '#E6E6E6'
-					}
-				},
-				css: {
-					'padding': '0 43px',
-
-				},
-				markActive: false,
-				completed: {
-					css: {
-						'background-color': '#E6E6E6'
-					},
-					icon: {
-						cssClass: 'glyphicon glyphicon-ok-sign',
-						css: {
-							'position': 'absolute',
-							'top': '-20px',
-							'right': '-17px',
-							'font-size': '4em',
-							'color': 'green'
-						}
-					}
-				}
-
-			},
-			steps: {
-				title: {
-					number: {
-						css: {
-							'background-color': '#E6E6E6',
-							'-webkit-border-radius': '300px',
-							'-moz-border-radius': '300px',
-							'border-radius': '300px',
-							'color': '#FFFFFF',
-							'float': 'left',
-							'font-size': '36px',
-							'height': '70px',
-							'margin-right': '10px',
-							'text-align': 'center',
-							'width': '70px',
-							'font-weight': 'bold',
-							'padding-top': '8px'
-						}
-					},
-					text: {
-						css: {
-							'color': '#158CBA',
-							'font-size': '36px',
-							'float': 'left',
-							'font-size': '36px',
-							'margin-top': '8px'
-						}
-					}
-				},
-				content: {
-
-				}
-			},
+	aiiaWizard: {
+		minHeight: 400,
+		activeStep: 1,
+		localization: {
 			buttons: {
-				previous: {
-					text: {
-						css: {							
-							
-						}
-					},
-					icon: {
-						css: {
-							
-						}
-					}
-
-				},
-				next: {
-					text: {
-						css: { 
-
-						}
-					},
-					icon: {
-						css: {
-							
-						}
-					}
-				},
-				css: {
-					
-				},
-				finish: {
-					text: {
-						css: {
-							
-						}
-					}
-				},
-				css: {
-					
-				}
-
+				next: 'Next',
+				previous: 'Previous',
+				finish: 'Finish',
+				loading: 'Loading...'
 			}
+		},
+		progressButtons: {
+			borderBottom: {
+				css: {
+					'border-width': '4px',
+					'border-color': '#E6E6E6'
+				}
+			},
+			css: {
+				'padding': '0 43px',
+	
+			},
+			markActive: false,
+			completed: {
+				css: {
+					'background-color': '#E6E6E6'
+				},
+				icon: {
+					cssClass: 'glyphicon glyphicon-ok-sign',
+					css: {
+						'position': 'absolute',
+						'top': '-20px',
+						'right': '-17px',
+						'font-size': '4em',
+						'color': 'green'
+					}
+				}
+			}
+	
+		},
+		steps: {
+			title: {
+				number: {
+					css: {
+						'background-color': '#E6E6E6',
+						'-webkit-border-radius': '300px',
+						'-moz-border-radius': '300px',
+						'border-radius': '300px',
+						'color': '#FFFFFF',
+						'float': 'left',
+						'font-size': '36px',
+						'height': '70px',
+						'margin-right': '10px',
+						'text-align': 'center',
+						'width': '70px',
+						'font-weight': 'bold',
+						'padding-top': '8px'
+					}
+				},
+				text: {
+					css: {
+						'color': '#158CBA',
+						'font-size': '36px',
+						'float': 'left',
+						'font-size': '36px',
+						'margin-top': '8px'
+					}
+				}
+			},
+			content: {
+	
+			}
+		},
+		buttons: {
+			previous: {
+				text: {
+					css: {							
+						
+					}
+				},
+				icon: {
+					css: {
+						
+					}
+				}
+	
+			},
+			next: {
+				text: {
+					css: { 
+	
+					}
+				},
+				icon: {
+					css: {
+						
+					}
+				}
+			},
+			css: {
+				
+			},
+			finish: {
+				text: {
+					css: {
+						
+					}
+				}
+			},
+			css: {
+				
+			}
+	
 		}
 	}
+}
 ```
 
 
