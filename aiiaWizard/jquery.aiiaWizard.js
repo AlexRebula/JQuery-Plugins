@@ -28,6 +28,7 @@
 					settings = $.extend(true, $.fn.aiiaWizard.defaults, options);
 					var globalMinHeight = settings.aiiaWizard.minHeight;
 					var buttonFinishText = settings.aiiaWizard.localization.buttons.finish;
+					var buttonLoadingText = settings.aiiaWizard.localization.buttons.loading;
 					var activeStep = settings.aiiaWizard.activeStep;
 
 					$(this).data('aiiaWizard').settings = settings;
@@ -185,16 +186,23 @@
 			// TODO: implement
 		},
 		previous: function () {
-			$plugin = $(this);
-			var settings = $plugin.data('aiiaWizard').settings;
-			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
-			slideRight($elementToSlide, settings, $plugin);
+			previous($plugin);
 		},
+
 		next: function () {
 			$plugin = $(this);
 			var settings = $plugin.data('aiiaWizard').settings;
 			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
 			slideLeft($elementToSlide, settings, $plugin);
+		},
+		first: function (a) {			
+
+			previous(a, true);
+			$plugin.on("slideRightSuccess.aiiaWizard", function (event, goToFirst) {
+				if (goToFirst == true)
+					previous(a, true);
+			});
+			
 		},
 		final: function () {
 			// TODO: implement
@@ -209,6 +217,10 @@
 		enablePreviousButton: function (stepNumber) {
 
 		},
+		getActiveStep: function () {
+			$plugin = $(this);
+			return parseInt($plugin.find(".aiia-wizard-steps-wrapper .active").attr("data-position"), 10);
+		}
 	};
 
 	////////////////////////////////////////// Private functions 
@@ -222,7 +234,7 @@
 		});
 	}
 
-	function slideLeft($elementToSlide, settings, $plugin) {
+	function slideLeft($elementToSlide, settings, $plugin, slideSuccessCallback) {
 
 		if ($elementToSlide.next().length) {
 
@@ -262,7 +274,7 @@
 
 	}
 
-	function slideRight($elementToSlide, settings, $plugin) {
+	function slideRight($elementToSlide, settings, $plugin, goToFirst) {
 
 		if ($elementToSlide.prev().length) {
 
@@ -297,7 +309,7 @@
 				}
 
 				$.isFunction(settings.onSlideRightFinished) && settings.onSlideRightFinished.call($plugin);
-				$plugin.trigger("slideRightSuccess.aiiaWizard", this);
+				$plugin.trigger("slideRightSuccess.aiiaWizard", goToFirst);
 
 			});
 
@@ -309,7 +321,7 @@
 			"<div class='aiia-wizard-buttons-wrapper row'>" +
 				"<div class='col-md-12'>" +
 					"<button class='btn btn-primary pull-left aiia-wizard-button-previous'></button>" +
-					"<button class='btn btn-primary pull-right aiia-wizard-button-next'></button>" +
+					"<button class='btn btn-primary pull-right aiia-wizard-button-next' data-loading-text='" + settings.aiiaWizard.localization.buttons.loading + "'></button>" +
 				"</div>" +
 			"</div>" +
 		"").css({
@@ -329,11 +341,11 @@
 		$buttons.find(".btn").css(settings.aiiaWizard.buttons.css);
 
 		$buttons.find(".aiia-wizard-button-previous")
-			.append($iconPrevious)
+			//.append($iconPrevious)
 			.append($iconPreviousText);
 
 		$buttons.find(".aiia-wizard-button-next")
-			.append($iconNext)
+			//.append($iconNext)
 			.append($iconNextText);
 
 		return $buttons;
@@ -358,6 +370,7 @@
 			.css({
 				'position': 'relative',
 				'overflow': 'hidden',
+				'width': '100%',
 				'min-height': globalMinHeight + 'px'
 			});
 		return result;
@@ -494,7 +507,7 @@
 			.addClass('btn-primary')
 			.html("")
 			.append($iconNextText)
-			.append($iconNext)
+			//.append($iconNext)
 	}
 
 	function markStepAsCompleted(activeElementPosition, $plugin, settings) {
@@ -524,6 +537,16 @@
 		$a.removeAttr("style");
 	}
 
+	function previous($plugin, goToFirst) {
+		var settings = $plugin.data('aiiaWizard').settings;
+		var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
+		var activeStep = parseInt($plugin.find(".aiia-wizard-steps-wrapper .active").attr("data-position"), 10);
+		if (activeStep > 0) {
+			slideRight($elementToSlide, settings, $plugin, goToFirst);
+		}
+	}
+
+
 	////////////////////////////////////////// Plugin definition
 
 	$.fn.aiiaWizard = function (method) {
@@ -548,7 +571,8 @@
 				buttons: {
 					next: 'Next',
 					previous: 'Previous',
-					finish: 'Finish'
+					finish: 'Finish',
+					loading: 'Loading...'
 				}
 			},
 			progressButtons: {
@@ -616,34 +640,32 @@
 			buttons: {
 				previous: {
 					text: {
-						css: {
-							'font-size': '20px',
-							'float': 'right',
-							'font-size': '20px',
-							'margin-top': '2px',
-							'margin-left': '7px'
+						css: {							
+							//'float': 'right',
+							//'font-size': '14px',
+							//'margin-top': '2px',
+							//'margin-left': '7px'
 						}
 					},
 					icon: {
 						css: {
-							'font-size': '24px'
+							//'font-size': '24px'
 						}
 					}
 
 				},
 				next: {
 					text: {
-						css: {
-							'font-size': '20px',
-							'float': 'left',
-							'font-size': '20px',
-							'margin-top': '2px',
-							'margin-right': '7px'
+						css: {							
+							//'float': 'left',
+							//'font-size': '14px',
+							//'margin-top': '2px',
+							//'margin-right': '7px'
 						}
 					},
 					icon: {
 						css: {
-							'font-size': '24px'
+							//'font-size': '14px'
 						}
 					}
 				},
@@ -653,11 +675,11 @@
 				finish: {
 					text: {
 						css: {
-							'font-size': '20px',
-							'float': 'left',
-							'font-size': '20px',
-							'margin-top': '2px',
-							'margin-right': '7px'
+							//'font-size': '20px',
+							//'float': 'left',
+							//'font-size': '20px',
+							//'margin-top': '2px',
+							//'margin-right': '7px'
 						}
 					}
 				},
