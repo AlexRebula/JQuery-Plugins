@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿;(function ($, window, document, undefined) {
 
     //#region Public methods
     var pub = {
@@ -235,4 +235,4 @@
     };
     //#endregion
 
-})(jQuery);
+})( jQuery, window, document );

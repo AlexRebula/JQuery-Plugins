@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿;(function ($, window, document, undefined) {
 
 	var settings;
 
@@ -188,15 +188,13 @@
 		previous: function () {
 			previous($plugin);
 		},
-
 		next: function () {
 			$plugin = $(this);
 			var settings = $plugin.data('aiiaWizard').settings;
 			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
 			slideLeft($elementToSlide, settings, $plugin);
 		},
-		first: function (a) {			
-
+		first: function (a) {
 			previous(a, true);
 			$plugin.on("slideRightSuccess.aiiaWizard", function (event, goToFirst) {
 				if (goToFirst == true)
@@ -207,15 +205,14 @@
 		final: function () {
 			// TODO: implement
 		},
-
 		// disables the "previous" button for the provided step
 		disablePreviousButton: function (stepNumber) {
-
+			// TODO: implement
 		},
 
 		// enables the "previous" button for the provided step
 		enablePreviousButton: function (stepNumber) {
-
+			// TODO: implement
 		},
 		getActiveStep: function () {
 			$plugin = $(this);
@@ -691,4 +688,4 @@
 		}
 	};
 
-})(jQuery);
+})( jQuery, window, document );
