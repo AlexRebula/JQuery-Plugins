@@ -31,5 +31,5 @@ The plugin works in combination of a customized CSS styles that you need to crea
 ## Plugin usage
 
 ```javascript
-	$("#myTabs").sTabs();
+$("#myTabs").sTabs();
 ```
