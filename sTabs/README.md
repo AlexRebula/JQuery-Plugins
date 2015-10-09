@@ -37,10 +37,10 @@ The plugin works in combination of a customized CSS styles that you need to crea
 <div class="tabs-container">
     <ul class="tabs" id="myTabs">
         <li class="tab active">
-            <a href="#content1">List View</a>
+            <a href="#content1">Tab1</a>
         </li>
         <li class="tab">
-            <a href="#content1">Map View</a>
+            <a href="#content1">Tab2</a>
         </li>
     </ul>
     <div class="tab-content">        
