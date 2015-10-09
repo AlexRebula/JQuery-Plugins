@@ -5,6 +5,32 @@ A simple, light-weight jQuery plugin that creates tabs and panes. All the plugin
 
 The plugin works in combination of a customized CSS styles that you need to create. So make sure to apply your custom CSS styles in order to have properly styled tabs and panes.
 
+## Basic CSS rules
+
+```css
+.tab-pane {
+	display: none;
+}
+
+.tab-pane.active {
+	display: block;
+}
+
+.tabs {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+
+}
+
+.tab {
+	float:left;
+	list-style: none;
+	margin-right: 10px;
+}
+
+```
+
 ## Expected HTML markup example
 
 ```html
