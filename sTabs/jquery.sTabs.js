@@ -62,9 +62,16 @@ SOFTWARE.
                         sTabs: sTabs
                     });
 
-                    var $tabs = $this                      
+                    var $tabs = $this
                       .find(".tab")
                       .find("a");
+
+                    $this
+                      .find(".tab.active")
+                      .find("a")
+                      .attr('tabindex','-1');
+
+
 
                     var $panelsContainer = $this.next();
 
@@ -77,11 +84,22 @@ SOFTWARE.
 
                       if (!$clickedTab.hasClass("active")) {
                         
-                        $this.find(".tab.active").removeClass("active");
-                        $clickedTab.parent().addClass("active");
+                        $this
+                            .find(".tab.active")
+                            .removeClass("active")
+                            .removeAttr('tabindex');
 
-                        $panelsContainer.find(".tab-pane.active").removeClass("active");
-                        $(clickedId).addClass("active");
+                        $clickedTab
+                            .parent()
+                            .addClass("active")
+                            .attr('tabindex','-1');
+
+                        $panelsContainer
+                            .find(".tab-pane.active")
+                            .removeClass("active");
+
+                        $(clickedId)
+                            .addClass("active");
 
                       }
 
