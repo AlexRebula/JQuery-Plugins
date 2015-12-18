@@ -82,12 +82,14 @@ SOFTWARE.
                       var $clickedTab = $(this);
                       var clickedId = $clickedTab.attr("href");
 
-                      if (!$clickedTab.hasClass("active")) {
+
+                    $('a.tab-label').removeAttr('tabindex');
+
+                    if (!$clickedTab.hasClass("active")) {
                         
                         $this
                             .find(".tab.active")
-                            .removeClass("active")
-                            .removeAttr('tabindex');
+                            .removeClass("active");
 
                         $clickedTab
                             .parent()
